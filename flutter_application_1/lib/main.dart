@@ -10,9 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Startup Name Generator',
-      home: RandomWords(),
+      theme: ThemeData(
+        // Add the 5 lines from here...
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.yellowAccent.shade700,
+        ),
+      ),
+      home: const RandomWords(),
     );
   }
 }
@@ -92,7 +99,7 @@ class _RandomWordsState extends State<RandomWords> {
             trailing: Icon(
               // NEW from here ...
               alreadySaved ? Icons.favorite : Icons.favorite_border,
-              color: alreadySaved ? Colors.blue : null,
+              color: alreadySaved ? Colors.redAccent.shade700 : null,
               semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
             ),
             onTap: () {
